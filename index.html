@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Practice Website</title>
+<style>
+body{margin:0;font-family:system-ui,sans-serif;background:#fdf2f6;color:#5a1030}
+main{max-width:900px;margin:0 auto;padding:30px 20px}
+h1{font-size:40px;margin:0 0 10px}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:24px}
+figure{margin:0;background:#fff;border-radius:16px;padding:10px}
+img{width:100%;border-radius:10px;display:block}
+figcaption{padding:8px 4px;font-weight:600}
+</style>
+</head>
+<body>
+<main>
+<h1 id="title">Loading...</h1>
+<p id="intro"></p>
+<div class="gal" id="gal"></div>
+</main>
+<script>
+fetch('/data/site.json').then(function(r){return r.json()}).then(function(s){
+document.getElementById('title').textContent=s.title;
+document.getElementById('intro').textContent=s.intro});
+fetch('/data/gallery.json').then(function(r){return r.json()}).then(function(g){
+document.getElementById('gal').innerHTML=g.items.map(function(i){
+return '<figure><img src="'+i.image+'" alt="'+i.caption+'"><figcaption>'+i.caption+'</figcaption></figure>'}).join('')});
+</script>
+</body>
+</html>

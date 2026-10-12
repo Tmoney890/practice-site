@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "image": "/images/sample-1.jpg",
+      "caption": "Sample picture 1"
+    },
+    {
+      "image": "/images/sample-2.jpg",
+      "caption": "Sample picture 2"
+    },
+    {
+      "image": "/images/sample-3.jpg",
+      "caption": "Sample picture 3"
+    }
+  ]
+}
