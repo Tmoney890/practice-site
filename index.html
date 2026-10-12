@@ -28,5 +28,9 @@ fetch('/data/gallery.json').then(function(r){return r.json()}).then(function(g){
 document.getElementById('gal').innerHTML=g.items.map(function(i){
 return '<figure><img src="'+i.image+'" alt="'+i.caption+'"><figcaption>'+i.caption+'</figcaption></figure>'}).join('')});
 </script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+if(window.netlifyIdentity){window.netlifyIdentity.on("init",function(user){if(!user){window.netlifyIdentity.on("login",function(){document.location.href="/admin/"})}})}
+</script>
 </body>
 </html>
